@@ -8,11 +8,15 @@ const timeBoard = document.querySelector(".time__table--span")
 
 function timeTableClock() {
   const currentDate = new Date()
-  const secondsRatio = currentDate.getSeconds() < 10 ? "0" + currentDate.getSeconds() : currentDate.getSeconds() 
-  const minutesRatio = currentDate.getMinutes() < 10 ? "0" + currentDate.getMinutes() : currentDate.getMinutes()
-  const hoursRatio = currentDate.getHours() < 10 ? "0" + currentDate.getHours() : currentDate.getHours()
+  const secondsRatio = convertTime(currentDate.getSeconds()) 
+  const minutesRatio = convertTime(currentDate.getMinutes())
+  const hoursRatio = convertTime(currentDate.getHours())
    
   timeBoard.innerHTML = `${hoursRatio} : ${minutesRatio} : ${secondsRatio}`
+}
+
+function convertTime (element) {
+    return element < 10 ? "0" + element : element
 }
 
 function setClock() {  
